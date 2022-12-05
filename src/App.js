@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import Header from "./components/Header";
+import AddForm from "./components/AddForm";
+import styled from "styled-components";
+import "./App.css";
+import TodolistForm from "./components/TodolistForm";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Wrapper>
+      <Header />
+      <AddForm />
+      <TodolistForm />
+    </Wrapper>
   );
 }
 
 export default App;
+
+const Wrapper = styled.div`
+  /* display: flex; */
+  max-width: 1200px;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  /*   flex-direction: column; */
+  /*   align-items: center; */
+  gap: 20px 0;
+`;
