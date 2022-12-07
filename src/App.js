@@ -1,31 +1,16 @@
-import logo from "./logo.svg";
-import Header from "./components/Header";
-import AddForm from "./components/AddForm";
-import styled from "styled-components";
 import "./App.css";
-import TodolistForm from "./components/TodolistForm";
-
-
+import Home from "./components/Home";
+import About from "./components/About";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
   return (
-    <Wrapper>
-      <Header />
-      <AddForm />
-      <TodolistForm />
-    </Wrapper>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/:id" element={<About />}></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
 export default App;
-
-const Wrapper = styled.div`
-  /* display: flex; */
-  max-width: 1200px;
-  min-height: 100vh;
-  padding: 20px;
-  box-sizing: border-box;
-  margin: 0 auto;
-  /*   flex-direction: column; */
-  /*   align-items: center; */
-  gap: 20px 0;
-`;
