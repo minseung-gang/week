@@ -10,9 +10,9 @@ export default function AddForm() {
   const [content, setContent] = useState("");
   const todos = useSelector((state) => state.todos.todos);
   const dispatch = useDispatch();
-
   const submitHandler = () => {
-    // action creator
+    if (title == "" || content == "")
+      return alert("제목이나 내용을 한번 더 확인해주세요.");
 
     dispatch(
       addList({
@@ -23,6 +23,8 @@ export default function AddForm() {
         isDone: false,
       })
     );
+    setTitle("");
+    setContent("");
   };
 
   return (
@@ -42,6 +44,7 @@ export default function AddForm() {
           <input
             type="text"
             className="content_field"
+            value={content}
             onChange={(e) => setContent(e.target.value)}
           />
         </div>
