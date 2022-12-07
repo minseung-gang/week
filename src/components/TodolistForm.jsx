@@ -5,8 +5,9 @@ import Card from "./Card";
 import { deleteList, updateList } from "../redux/modules/todos";
 
 export default function TodolistForm() {
-  let globalState = useSelector((state) => state.todos.todos);
+  let globalState = useSelector((state) => state.todos.todos); //3개의 리스트가 있던 곳
   console.log(globalState);
+
   const dispatch = useDispatch();
 
   const deleteHandler = (id) => {
@@ -25,7 +26,7 @@ export default function TodolistForm() {
           <span className="list_title">오늘 열심히 해야 할 일 🔥 </span>
           <StGrid>
             {globalState.map((todo) => {
-              if (!todo.isDone) {
+              if (todo.isDone === false) {
                 // false
                 return (
                   <Card
@@ -43,7 +44,7 @@ export default function TodolistForm() {
           <span className="list_title">오늘 열심히 한 일 💭</span>
           <StGrid>
             {globalState.map((todo) => {
-              if (todo.isDone) {
+              if (todo.isDone === true) {
                 return (
                   <Card
                     key={todo.id}
